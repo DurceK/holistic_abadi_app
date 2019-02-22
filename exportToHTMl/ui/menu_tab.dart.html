@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>menu_tab.dart</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #6a8759;}
+.s2 { color: #cc7832;}
+.s3 { color: #cc7832; font-weight: bold;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+menu_tab.dart</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">'package:flutter/material.dart'</span><span class="s2">;</span>
+<span class="s3">class </span><span class="s0">MenuTab </span><span class="s3">extends </span><span class="s0">StatelessWidget {</span>
+  @override
+  Widget build(BuildContext context) {
+
+    Widget _buildBodyBack() =&gt; Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+            colors:[ Colors.blue<span class="s2">,</span>
+            <span class="s0">Colors.white</span>
+            ]<span class="s2">,</span>
+          <span class="s0">begin: Alignment.topLeft</span><span class="s2">,</span>
+            <span class="s0">end: Alignment.bottomRight</span>
+        )
+      )<span class="s2">,</span>
+
+    <span class="s0">)</span><span class="s2">;</span>
+
+    <span class="s3">return </span><span class="s0">Stack(</span>
+      children: &lt;Widget&gt;[
+        _buildBodyBack()<span class="s2">,</span>
+        <span class="s0">CustomScrollView(</span>
+          slivers: &lt;Widget&gt;[
+            SliverAppBar(
+              floating: <span class="s3">true</span><span class="s2">,</span>
+              <span class="s0">snap: </span><span class="s3">true</span><span class="s2">,</span>
+              <span class="s0">backgroundColor:  Colors.transparent</span><span class="s2">,</span>
+              <span class="s0">elevation: </span><span class="s4">0.0</span><span class="s2">,</span>
+              <span class="s0">flexibleSpace: FlexibleSpaceBar(</span>
+                title: <span class="s3">const </span><span class="s0">Text(</span><span class="s1">&quot;Início&quot;</span><span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">centerTitle: </span><span class="s3">true</span><span class="s2">,</span>
+              <span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">)</span>
+          ]<span class="s2">,</span>
+        <span class="s0">)</span>
+      ]<span class="s2">,</span>
+    <span class="s0">)</span><span class="s2">;</span>
+  <span class="s0">}</span>
+}
+</pre>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>home.dart</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #6a8759;}
+.s2 { color: #cc7832;}
+.s3 { color: #808080;}
+.s4 { color: #cc7832; font-weight: bold;}
+.s5 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+home.dart</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">'package:flutter/material.dart'</span><span class="s2">;</span><span class="s3">// MAIN</span>
+<span class="s0">import </span><span class="s1">'package:holistic_abadi_app/ui/grid_page.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:holistic_abadi_app/ui/menu_page.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:holistic_abadi_app/ui/menu_tab.dart'</span><span class="s2">;</span>
+
+<span class="s4">class </span><span class="s0">Home </span><span class="s4">extends </span><span class="s0">StatefulWidget {</span>
+
+  @override
+  _HomeState createState() =&gt; _HomeState()<span class="s2">;</span>
+<span class="s0">}</span>
+
+<span class="s4">class </span><span class="s0">_HomeState </span><span class="s4">extends </span><span class="s0">State&lt;Home&gt; {</span>
+  <span class="s4">final </span><span class="s0">_formKey=GlobalKey&lt;FormState&gt;()</span><span class="s2">;</span>
+  <span class="s0">@override</span>
+  Widget build(BuildContext context) {
+    <span class="s4">return </span><span class="s0">Scaffold(</span>
+        backgroundColor: Colors.yellowAccent<span class="s2">,</span>
+        <span class="s0">appBar: AppBar(</span>
+          centerTitle: <span class="s4">true</span><span class="s2">,</span>
+          <span class="s0">title: Text(</span><span class="s1">&quot;ABADI HOLISTIC APP&quot;</span><span class="s2">,</span>
+              <span class="s0">style: TextStyle(fontSize: </span><span class="s5">25.0</span><span class="s2">, </span><span class="s0">fontWeight: FontWeight.bold))</span><span class="s2">,</span>
+          <span class="s0">backgroundColor: Colors.blue</span><span class="s2">,</span>
+        <span class="s0">)</span><span class="s2">,</span>
+        <span class="s0">body: Form(</span>
+          key: _formKey<span class="s2">,</span>
+            <span class="s0">child: SingleChildScrollView(</span>
+            padding: EdgeInsets.all(<span class="s5">16.0</span><span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">child: Column(</span>
+
+            crossAxisAlignment: CrossAxisAlignment.stretch<span class="s2">,</span>
+            <span class="s0">children: &lt;Widget&gt;[</span>
+              Padding(padding: EdgeInsets.fromLTRB(<span class="s5">10</span><span class="s2">, </span><span class="s5">30</span><span class="s2">,</span><span class="s5">10</span><span class="s2">,</span><span class="s5">10</span><span class="s0">))</span><span class="s2">,</span>
+              <span class="s0">Image.asset(</span><span class="s1">&quot;imagens/logo_ipiranga.png&quot;</span><span class="s0">)</span><span class="s2">,</span>
+
+              <span class="s0">Padding(</span>
+                padding:EdgeInsets.fromLTRB(<span class="s5">10</span><span class="s2">,</span><span class="s5">30</span><span class="s2">,</span><span class="s5">10</span><span class="s2">,</span><span class="s5">10</span><span class="s0">) </span><span class="s2">,</span>
+                <span class="s0">child:</span>
+              TextFormField(
+                decoration: InputDecoration(
+                  hintText: <span class="s1">&quot;Login&quot;</span>
+                <span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">keyboardType: TextInputType.text</span><span class="s2">,</span>
+                <span class="s0">validator: (text){</span>
+                  <span class="s4">if </span><span class="s0">(text.isEmpty || text!=</span><span class="s1">&quot;ksd&quot;</span><span class="s0">){ </span><span class="s4">return </span><span class="s1">&quot;Loguin Inválido!&quot;</span><span class="s2">;</span>
+                <span class="s0">}}</span><span class="s2">,</span>
+              <span class="s0">))</span><span class="s2">,</span>
+              <span class="s0">Padding(</span>
+                padding:EdgeInsets.fromLTRB(<span class="s5">10</span><span class="s2">,</span><span class="s5">10</span><span class="s2">,</span><span class="s5">10</span><span class="s2">,</span><span class="s5">90</span><span class="s0">) </span><span class="s2">,</span>
+                <span class="s0">child:</span>
+              TextFormField(
+                decoration: InputDecoration(
+                    hintText:<span class="s1">&quot;Senha&quot;</span>
+                <span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">keyboardType: TextInputType.text</span><span class="s2">,</span>
+                <span class="s0">obscureText: </span><span class="s4">true</span><span class="s2">,</span>
+                <span class="s0">validator: (text){</span>
+                  <span class="s4">if </span><span class="s0">(text.isEmpty || text!=</span><span class="s1">&quot;kaiques&quot;</span><span class="s0">) </span><span class="s4">return </span><span class="s1">&quot;Senha Inválida!&quot;</span><span class="s2">;</span>
+                <span class="s0">}</span><span class="s2">,</span>
+
+              <span class="s0">))</span><span class="s2">,</span>
+              <span class="s3">/*Align(alignment: Alignment.centerRight, 
+                child:  FlatButton( 
+                    onPressed: () {}, 
+                    padding:EdgeInsets.fromLTRB(10,0,10,70), 
+                      child: Text(&quot;Esqueci a senha!&quot;,style: TextStyle(color: Colors.blueAccent),)), 
+              ),*/</span>
+              <span class="s0">SizedBox(</span>
+                height: <span class="s5">44.0</span><span class="s2">,</span>
+                <span class="s0">child: RaisedButton(</span>
+
+                  padding: EdgeInsets.all(<span class="s5">10</span><span class="s0">)</span><span class="s2">,</span>
+                  <span class="s0">onPressed: () {</span>
+                    <span class="s4">if</span><span class="s0">(_formKey.currentState.validate()){</span>
+                      Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (context) =&gt; MenuPage()))<span class="s2">;</span>
+                    <span class="s0">}</span>
+                  }<span class="s2">,</span>
+                  <span class="s0">child: Text(</span>
+                    <span class="s1">&quot;ENTRAR&quot;</span><span class="s2">,</span>
+                    <span class="s0">style: TextStyle(fontSize: </span><span class="s5">15.0</span><span class="s0">)</span><span class="s2">,</span>
+
+                  <span class="s0">)</span><span class="s2">,</span>
+                  <span class="s0">textColor: Colors.white</span><span class="s2">,</span>
+                  <span class="s0">color: Theme.of(context).primaryColor</span><span class="s2">,</span>
+
+                <span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">)</span><span class="s2">,</span>
+
+            <span class="s0">]</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+        <span class="s0">))</span>
+    )<span class="s2">;</span><span class="s0">}</span>
+}
+</pre>
+</body>
+</html>
