@@ -29,7 +29,7 @@ class _HomeState extends State<Home> {
             key: _formKey,//indicação da chave do formulário.
             child: SingleChildScrollView(/* o nosso formulário tem um Filho que é um SingleChildScrollView() widget que tem
             a propriedade de tonar nossa tela em um elemento rolável */
-              padding: EdgeInsets.all(16.0),//com o atributo padding
+              padding: EdgeInsets.all(16.0),//com o atributo padding podemos inserir uma distancia entre as margens do elemento.
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
