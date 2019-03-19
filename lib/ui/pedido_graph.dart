@@ -52,8 +52,10 @@ class PedidoGraph extends StatelessWidget {
     );
     return Scaffold(
       appBar: AppBar(
-        title: Text("Gráficos de Pedidos"),
+        title: Text("Gráficos de Pedidos",),
+
         centerTitle: true,
+        backgroundColor: Colors.blueAccent,
 
       ),
       body: Center(
@@ -61,7 +63,6 @@ class PedidoGraph extends StatelessWidget {
           children: <Widget>[
            Padding(
             padding: EdgeInsets.all(20),
-
           ),
            Text("Status Diário do Pedido"),
             SizedBox(
