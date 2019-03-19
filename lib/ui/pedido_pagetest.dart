@@ -25,16 +25,16 @@ class _PedidoPageState extends State<PedidoPageTest> {
     List<Base> bases = [];
     for (var b in jsonData) {
       Base base = Base(
-          b["bases"]["0"]["base"],
-          b["bases"]["0"]["descricao"],
-          b["bases"]["0"]["status"],
-          b["bases"]["0"]["totPedDia"],
-          b["bases"]["0"]["totPedDiaFaturados"],
-          b["bases"]["0"]["totPedDiaCarregados"],
-          b["bases"]["0"]["totPedDiaMenosUm"],
-          b["bases"]["0"]["totPedDiaMenosDois"],
-          b["bases"]["0"]["totPedDiaMenosTres"],
-          b["bases"]["0"]["totPedDiaMenosQuatro"]);
+          b["bases"]["base"],
+          b["bases"]["descricao"],
+          b["bases"]["status"],
+          b["bases"]["totPedDia"],
+          b["bases"]["totPedDiaFaturados"],
+          b["bases"]["totPedDiaCarregados"],
+          b["bases"]["totPedDiaMenosUm"],
+          b["bases"]["totPedDiaMenosDois"],
+          b["bases"]["totPedDiaMenosTres"],
+          b["bases"]["totPedDiaMenosQuatro"]);
       bases.add(base);
     }
     print(bases.length);

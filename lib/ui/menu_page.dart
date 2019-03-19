@@ -35,7 +35,7 @@ class  MenuPage extends StatelessWidget {
             centerTitle: true,
           ),
           drawer: CustomDrawer(_pageController),
-          body: PedidoPageTest(),
+          body: PedidoPage(),
         ),
         Scaffold(
           appBar: AppBar(

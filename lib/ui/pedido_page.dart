@@ -112,7 +112,7 @@ class _PedidoPageState extends State<PedidoPage> {
                                       builder: (context) => PedidoGraph()));
                                 },
                                 trailing: Icon(
-                                  Icons.thumb_up,
+                                  Icons.traffic,
                                   size: 45,
                                 ),
                                 contentPadding:
