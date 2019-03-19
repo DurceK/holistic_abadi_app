@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:holistic_abadi_app/ui/menu_tab.dart';
 import 'package:holistic_abadi_app/ui/pedido_page.dart';
-import 'package:holistic_abadi_app/ui/pedido_pagetest.dart';
 import 'package:holistic_abadi_app/widgets/custom_drawer.dart';//HOME SCREEN
 class  MenuPage extends StatelessWidget {
   final _pageController = PageController();

@@ -5,7 +5,7 @@ class DrawerTile extends StatelessWidget {
    final PageController controller;
    final int page;
 
-   DrawerTile(this.text, this.controller, this.page, [this.icon]);
+   DrawerTile(this.icon,this.text,this.controller,this.page);
   @override
   Widget build(BuildContext context) {
     return Material(
