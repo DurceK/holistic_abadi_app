@@ -1,16 +1,16 @@
-import 'package:flutter/material.dart';// MAIN
+import 'package:flutter/material.dart';//IMPORT DOS PACOTES
 import 'package:holistic_abadi_app/ui/menu_page.dart';
 
-class Home extends StatefulWidget {
+class Home extends StatefulWidget {//Definição da classe Home().
 
   @override
-  _HomeState createState() => _HomeState();
+  _HomeState createState() => _HomeState();//Definição do Retorno da classe Home().
 }
 
-class _HomeState extends State<Home> {
-  final _formKey=GlobalKey<FormState>();
-  @override
-  Widget build(BuildContext context) {
+class _HomeState extends State<Home> {// definição da classe HomeState(), onde serão feitas as funções da classe Home().
+  final _formKey=GlobalKey<FormState>();//definição da FormKey, que é a chave do formulário responsavel por identificar e indexar o estado do formulário.
+  @override//sobre escrita do método Build
+  Widget build(BuildContext context) {//
     return Scaffold(
         backgroundColor: Colors.yellowAccent,
         appBar: AppBar(

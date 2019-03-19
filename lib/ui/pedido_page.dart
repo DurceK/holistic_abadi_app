@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:holistic_abadi_app/ui/pedido_graph.dart';
 import 'package:http/http.dart' as http;
 
-const request = servidor;
+const request = "http://172.20.49.50:8972/pedidos/pedidosbase";
 String base;
 String _search;
 
