@@ -5,8 +5,8 @@ import 'package:holistic_abadi_app/ui/pedido_graph.dart';
 import 'package:http/http.dart' as http;
 
 const request = "http://172.20.49.50:8972/pedidos/pedidosbase";
+
 String base;
-String _search;
 
 class PedidoPage extends StatefulWidget {
   @override
@@ -14,16 +14,42 @@ class PedidoPage extends StatefulWidget {
 }
 
 class _PedidoPageState extends State<PedidoPage> {
+
   String base;
   String descricao;
+  String _search;
+
   Future<Map> getDados() async {
-    http.Response response; // definindo a resposta do rest
-    response = await http.get(request);
+    http.Response response;
+    if (_search == null && _value1 == true) {
+      // definindo a resposta do rest
+      response = await http.get("http://172.20.49.50:8972/pedidos/pedidosbase");
+    } else {
+      if (_search != null && _value1 == false) {
+        response = await http
+            .get("http://172.20.49.50:8972/pedidos/pedidosbase/$_search");
+      } else {
+        response = await http
+            .get("http://172.20.49.50:8972/pedidos/pedidosbase/$_search");
+      }
+    }
     return jsonDecode(response.body);
   }
 
-  bool _value1 = false;
-  void _value1Change(bool value) => setState(() => _value1 = value);
+  @override
+  void initState() {
+    super.initState();
+    getDados();
+  }
+
+  bool _value1 = true;
+
+  void _value1Change(bool value) => setState(() {
+        _value1 = value;
+        _search = null;
+        print(_search);
+      });
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,19 +63,14 @@ class _PedidoPageState extends State<PedidoPage> {
                   decoration: InputDecoration(
                       labelText: "Pesquise a Filial",
                       suffixIcon: Icon(Icons.search)),
-                      onSubmitted: (text){
-
-                      setState(() {
-                        _search=text;
-                      });
-
-                      },
+                  onSubmitted: (text) {
+                    setState(() {
+                      _search = text;
+                      _value1 = false;
+                    });
+                  },
                 ),
               ),
-            /*  RaisedButton(
-                onPressed: () {},
-                child: Text("Buscar"),
-              ),*/
               Checkbox(value: _value1, onChanged: _value1Change),
               Text("Todas")
             ],
@@ -83,50 +104,74 @@ class _PedidoPageState extends State<PedidoPage> {
                           ),
                         );
                       } else {
-
-                        if (_search==null){
                         return ListView.builder(
                             padding: EdgeInsets.only(top: 10),
                             itemCount: snapshot.data["bases"].length,
-                            itemBuilder: (context, index) {
+                            itemBuilder: (context, int index) {
 
-                              List<String> base = new List<String>();
-                              snapshot.data["bases"].forEach((cadaBase) {
-                                base.add(cadaBase["base"]);
-                              });
+                                List<String> base = new List<String>();
+                                snapshot.data["bases"].forEach((cadaBase) {
 
-                              List<String> descricao = new List<String>();
-                              snapshot.data["bases"].forEach((cadaDesc){
-                                descricao.add(cadaDesc["descricao"]);
-                              });
+                                  base.add(cadaBase["base"]);
+                                });
+                                List<String> descricao = new List<String>();
+                                snapshot.data["bases"].forEach((cadaDesc) {
 
-                              return ListTile(
-                                leading: const Icon(
-                                  Icons.location_city,
-                                  size: 35,
-                                ),
-                                title: Text(base[index]),
-                                subtitle: Text(descricao[index]),
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => PedidoGraph()));
-                                },
-                                trailing: Icon(
-                                  Icons.thumb_up,
-                                  size: 45,
-                                ),
-                                contentPadding:
-                                    EdgeInsets.fromLTRB(30, 0, 60, 0),
-                              );
+                                    descricao.add(cadaDesc["descricao"]);
+                                });
+                                while(index<=328) {
+                                  if (snapshot.data["bases"][index]["status"] ==
+                                      true) {
+                                    return ListTile(
+                                      leading: const Icon(
+                                        Icons.location_city,
+                                        size: 35,
+                                      ),
+                                      title: Text(base[index]),
+                                      subtitle: Text(descricao[index]),
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    PedidoGraph()));
+                                      },
+                                      trailing: Icon(
+                                        Icons.train,
+                                        size: 45,
+                                      ),
+                                      contentPadding:
+                                      EdgeInsets.fromLTRB(30, 0, 60, 0),
+                                    );
+                                  } else {
+                                    return ListTile(
+                                      leading: const Icon(
+                                        Icons.location_city,
+                                        size: 35,
+                                      ),
+                                      title: Text(base[index]),
+                                      subtitle: Text(descricao[index]),
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    PedidoGraph()));
+                                      },
+                                      trailing: Icon(
+                                        Icons.traffic,
+                                        size: 45,
+                                      ),
+                                      contentPadding:
+                                      EdgeInsets.fromLTRB(30, 0, 60, 0),
+                                    );
+                                  }
+
+                                }
                             });
-                        } else{
-
-                        }
                       }
                   }
-                })
-            )
+                }))
       ],
     );
   }
 }
+
