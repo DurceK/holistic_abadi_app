@@ -1,6 +1,7 @@
 # holistic_abadi_app
 
-AHA -  ABADI HOLISTIC APP
+  AHA -  ABADI HOLISTIC APP
+  
 Desenvolvi esse Projeto enquanto trabalhava na IPIRANGA PRODUTOS DE PETRÓLEO,
 Este vizava trazer uma visão geral e aberta do ERP - Legado com graficos intuitivos disponíveis em dispositivos móveis.
 
